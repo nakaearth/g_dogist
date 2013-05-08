@@ -3,15 +3,20 @@ $:.unshift(File.dirname(__FILE__))
 #require 'g_dogist'
 require 'g_dogist/gemfile_reader'
 require 'g_dogist/searcher'
+require 'g_dogist/gem_data'
 
 @reader   = GDogist::GemfileReader.new(ARGV[0])
-gems      = @reader.gem_list
-gems.each do|gem|
-  p gem
-  g_text_line = gem.split(/,/)
-  text_element = g_text_line[0].gsub(/\"/,"")
-                 .gsub(/\'/, "").gsub(/gem/, "").strip
-  @searcher = GDogist::Searcher.new("\'" << text_element << "\'")
-  @searcher.search
-end
+out_file = ARGV[1] || "gemlist.txt"
 
+gems      = @reader.gem_list
+open(out_file, "a") do |f|
+  gems.each do|gem|
+    p gem
+    g_text_line = gem.split(/,/)
+    text_element = g_text_line[0].gsub(/\"/,"")
+                   .gsub(/\'/, "").gsub(/gem/, "").strip
+    @searcher = GDogist::Searcher.new("\'" << text_element << "\'")
+    @searcher.search 
+    f.write @searcher.search
+  end
+end

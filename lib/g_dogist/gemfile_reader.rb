@@ -4,7 +4,7 @@ $:.unshift(File.dirname(__FILE__))
 module GDogist
   class GemfileReader
     def initialize(file)
-      @gemfile = file
+      @gemfile = file || "Gemfile"
     end
   
     def gem_list

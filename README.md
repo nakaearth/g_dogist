@@ -1,6 +1,5 @@
 # GDogist
-
-TODO: Write a gem description
+Gemfileを読み込み、関連情報を出力するGemです。
 
 ## Installation
 
@@ -19,6 +18,10 @@ Or install it yourself as:
 ## Usage
 
 TODO: Write usage instructions here
+
+## TODO
+1)HTML出力させて見やすくする。
+
 
 ## Contributing
 

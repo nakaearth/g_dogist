@@ -3,9 +3,12 @@
 $:.unshift(File.dirname(__FILE__))
 
 module GDogist
-  class Searcher
-    def initialize(gem_names)
-      @word = word
+  class View
+    def initialize
+    end 
+
+    def to_html
+      
     end
  
   end
